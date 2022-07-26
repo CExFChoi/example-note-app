@@ -1,0 +1,15 @@
+public-ops/components/*
+public/js/lib/vendor/*
+public/templates/*
+public-ops/templates/*
+node_modules/*
+coverage/*
+site/*
+doc/*
+test/fixture/*
+quartz-http/*
+v5_es/*
+docs/*
+.git/*
+customer_config/*
+.eslintrc.js

@@ -1,0 +1,34 @@
+{
+  "name": "example-note-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:CExFChoi/example-note-app.git",
+  "license": "MIT",
+  "browser": {
+    "child_process": false
+  },
+  "dependencies": {
+    "backbone": "^1.4.1",
+    "backbone-sql": "^0.6.5",
+    "dotenv": "^16.0.1",
+    "dust-loader": "^1.3.0",
+    "dustjs-linkedin": "^3.0.1",
+    "eslint-config-isight": "git+ssh://git@github.com/i-Sight/eslint-config-isight.git#v7.0.1",
+    "eslint-friendly-formatter": "4.0.1",
+    "eslint-plugin-import": "2.25.4",
+    "fs": "^0.0.1-security",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.6.0",
+    "jsdom": "^20.0.0",
+    "nodemon": "^2.0.19",
+    "nvm": "^0.0.4",
+    "pg": "^8.7.3",
+    "pgtools": "^0.3.2",
+    "underscore": "^1.13.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  }
+}

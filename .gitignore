@@ -1,0 +1,76 @@
+### Node / NPM
+node_modules
+/node_modules/
+npm-debug.log
+npm-debug.log.*
+*.heapsnapshot
+yarn-error.log
+
+
+### Secrets
+keys
+/.ssh/
+/.aws/credentials/
+
+### Build artifacts
+*.tar.gz
+test/fixture/.build
+plugins/expression/evaluators/vm-evaluator/bundle/.build
+
+### Sonar
+.sonar
+
+### local filestore
+.filestore
+
+### nyc
+.nyc_output/
+
+### Redis
+dump.rdb
+
+### Sublime Project
+*.sublime-*
+
+### Brackets IDE
+.brackets.json
+
+### JetBrains Intellij IDE
+.idea/
+*.iml
+
+### Eclipse IDE
+.project
+.settings
+*.tmp
+*.bak
+*.swp
+
+### Mac
+.DS_Store
+
+### Windows
+Thumbs.db
+Desktop.ini
+
+### Local
+.env
+secrets.env
+tmp
+
+### GTM
+/.gtm/
+
+### ESLint
+.eslintcache
+
+# webpack
+/.cache-loader
+
+# codeql
+/codeql/
+
+# Directory used for storage of intermediary files when converting to PDF
+!/plugins/pdftron/tmp/
+/plugins/pdftron/tmp/*
+!/plugins/pdftron/tmp/.gitkeep
