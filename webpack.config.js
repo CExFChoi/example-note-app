@@ -14,25 +14,6 @@ module.exports = {
 			dust: 'dustjs-linkedin',
 		}),
 	],
-	resolve: {
-
-		fallback: {
-			net: false,
-			tls: false,
-			dns: false,
-			url: false,
-			assert: false,
-			path: false,
-			crypto: false,
-			http: false,
-			https: false,
-			stream: false,
-			zlib: false,
-			util: false,
-			os: false,
-			buffer: false,
-		},
-	},
 	entry: `${SRC_PATH}/index.js`,
 	output: {
 		filename: 'bundle.js',

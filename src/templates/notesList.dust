@@ -1,0 +1,28 @@
+<div>
+    <a id="new-note-button" href="/#new" class="button">Create New Note</a>
+</div>
+{?notes}
+    <ul>
+        {#notes}
+        <li>
+            <div>
+                <span>Title: {title}</span>
+            </div>
+            <div>
+                <span>Author: {author}</span>
+            </div>
+            <div>
+                <span>Description: {description}</span>
+            </div>
+        </li>
+        {/notes}
+        <div class="">
+            <div class="label"> </div>
+        </div>
+    </ul>
+    <div>
+        <a data-id="{id}" href="/#edit/{id}" class="button edit-note">Edit</a>
+        <a data-id="{id}" href="/#delete/{id}" class="button delete-note">Delete</a>
+    </div>
+{/notes}
+
