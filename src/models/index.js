@@ -1,3 +1,10 @@
+const Backbone = require('backbone');
+const _ = require('underscore');
+
+const localStorage = require('backbone.localstorage');
+
+const {LocalStorage} = localStorage;
+
 const models = {};
 
 models.Note = Backbone.Model.extend({
@@ -21,5 +28,7 @@ models.Note = Backbone.Model.extend({
 
 models.NotesList = Backbone.Collection.extend({
 	model: models.Note,
-	localStorage: new Backbone.LocalStorage('Notes'),
+	localStorage: new LocalStorage('Notes'),
 });
+
+module.exports = models;

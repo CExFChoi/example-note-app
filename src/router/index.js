@@ -1,3 +1,6 @@
+const Backbone = require('backbone');
+const {NotesSection, NoteForm} = require('../views');
+const {Note, NotesList} = require('../models');
 
 const Router = Backbone.Router.extend({
 	routes: {
@@ -9,28 +12,27 @@ const Router = Backbone.Router.extend({
 	},
 	home(){
 		console.log('home');
-		const noteSection = new views.NotesSection(this.notesList);
+		const noteSection = new NotesSection(this.notesList);
 	},
 	new(){
 		console.log('new');
-		const noteForm = new views.NoteForm({noteList: this.notesList, note: new models.Note()});
+		const noteForm = new NoteForm({noteList: this.notesList, note: new models.Note()});
 		// noteForm.render();
 	},
 
 	edit(id){
 		console.log('editing note id', id);
-		const noteForm = new views.NoteForm({noteList: this.notesList, note: this.notesList.get(id)});
+		const noteForm = new NoteForm({noteList: this.notesList, note: this.notesList.get(id)});
 		// noteForm.render();
 	},
 
 	delete(id){},
 
 	initialize(){
-
-		this.notesList = new models.NotesList();
+		this.notesList = new NotesList();
 		this.notesList.fetch({ajaxSync: false});
 
-		const tempNote = new models.Note({ title: 'test title', author: 'test Author', description: 'Test description'});
+		const tempNote = new Note({ title: 'test title', author: 'test Author', description: 'Test description'});
 		this.notesList.add(tempNote);
 
 		tempNote.save();
@@ -46,3 +48,5 @@ const Router = Backbone.Router.extend({
 		Backbone.history.start({pushState: true});
 	},
 });
+
+module.exports = Router;

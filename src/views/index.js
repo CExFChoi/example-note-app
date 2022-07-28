@@ -1,3 +1,6 @@
+const Backbone = require('backbone');
+const _ = require('underscore');
+
 const views = {};
 
 views.NoteForm = Backbone.View.extend({
@@ -92,3 +95,5 @@ views.NotesSection = Backbone.View.extend({
 
 	},
 });
+
+module.exports = views;

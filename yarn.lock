@@ -560,10 +560,10 @@ asynckit@^0.4.0:
   resolved "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-backbone.localstorage@^1.1.0:
-  version "1.1.16"
-  resolved "https://registry.yarnpkg.com/backbone.localstorage/-/backbone.localstorage-1.1.16.tgz#3df5101d93abcee04f326035540f425dd0487916"
-  integrity sha512-NDj5FOI4ufqootUgLlGWMojuSSDEI+GTqLa+H9T5uZhD5lLT/gtfVE6Rt9unWZ8mGsZYHPTK7Mijfisc10LMEA==
+backbone.localstorage@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/backbone.localstorage/-/backbone.localstorage-2.1.0.tgz#063c8338d1ab5f7d6eb735894399fdbd0103a4b3"
+  integrity sha512-NzLWYsMg6qyag3q4CUGh9QJLkbVlenUdFzQSR/0ueBB7ePgGvZ3VfvBAqwUp4x9a2JliphXEIrFVVqSOQJbuvQ==
 
 backbone@^1.4.1:
   version "1.4.1"
