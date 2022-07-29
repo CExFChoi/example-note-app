@@ -7,7 +7,8 @@ dt {
     text-align: right;
 }
 
-#github-link {
+#github-link #github-link:link, #github-link:visited, #github-link:focus, #github-link:hover, #github-link:active, #github-link:any-link {
+
     color: blue;
     font-size: small;
 }
