@@ -6,3 +6,8 @@ a, a:link, a:visited, a:focus, a:hover, a:active, a:any-link {
 dt {
     text-align: right;
 }
+
+#github-link {
+    color: blue;
+    font-size: small;
+}
