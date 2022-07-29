@@ -7,6 +7,9 @@
   "browser": {
     "child_process": false
   },
+  "scripts": {
+    "build": "node_modules/.bin/webpack --config webpack.config.js"
+  },
   "dependencies": {
     "backbone": "^1.4.1",
     "backbone-orm": "^0.7.14",
