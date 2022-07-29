@@ -1,0 +1,8 @@
+a, a:link, a:visited, a:focus, a:hover, a:active, a:any-link {
+    color: white;
+    text-decoration: none;
+}
+
+dt {
+    text-align: right;
+}

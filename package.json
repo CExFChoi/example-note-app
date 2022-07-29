@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "backbone": "^1.4.1",
+    "backbone-orm": "^0.7.14",
+    "backbone-sql": "^0.6.5",
     "backbone.localstorage": "^2.1.0",
     "dotenv": "^16.0.1",
     "dust-compiler": "^0.3.9",

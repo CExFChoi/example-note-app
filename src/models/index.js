@@ -3,6 +3,7 @@ const _ = require('underscore');
 
 const localStorage = require('backbone.localstorage');
 
+
 const {LocalStorage} = localStorage;
 
 const models = {};
@@ -15,9 +16,9 @@ models.Note = Backbone.Model.extend({
 	},
 	validate(attribute){
 		const errors = {};
-		if (!attribute.title) errors.title = 'Need a title';
-		if (!attribute.author) errors.author = 'Need a author';
-		if (!attribute.description) errors.description = 'Need a description';
+		if (!attribute.title) errors.title = 'Missing title';
+		if (!attribute.author) errors.author = 'Missing author';
+		if (!attribute.description) errors.description = 'Missing description';
 
 		if (_.isEmpty(errors)){
 			return;

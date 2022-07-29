@@ -1,6 +1,6 @@
 const Backbone = require('backbone');
-const {NotesSection, NoteForm} = require('../views');
-const {Note, NotesList} = require('../models');
+const {NotesSection, NoteForm, DebugSection} = require('../views');
+const {Note, NotesList } = require('../models');
 
 const Router = Backbone.Router.extend({
 	routes: {
@@ -8,44 +8,40 @@ const Router = Backbone.Router.extend({
 		new: 'new',
 		'edit/:id': 'edit',
 		'delete/:id': 'delete',
-
 	},
 	home(){
-		console.log('home');
-		const noteSection = new NotesSection(this.notesList);
+		this.notesList.fetch({ajaxSync: false});
+		 new DebugSection(this.notesList); /* eslint-disable-line */
+		this.loadView(new NotesSection(this.notesList));
 	},
 	new(){
-		console.log('new');
-		const noteForm = new NoteForm({noteList: this.notesList, note: new models.Note()});
-		// noteForm.render();
+		this.loadView(new NoteForm({noteList: this.notesList, note: new Note(), type: 'Create'}));
 	},
 
 	edit(id){
-		console.log('editing note id', id);
-		const noteForm = new NoteForm({noteList: this.notesList, note: this.notesList.get(id)});
-		// noteForm.render();
+		this.loadView(new NoteForm({noteList: this.notesList, note: this.notesList.get(id), type: 'Edit'}));
 	},
 
-	delete(id){},
+	delete(id){
+		const note = this.notesList.get(id);
+		note.destroy();
+		Backbone.history.navigate('index', {trigger: true});
+	},
 
 	initialize(){
 		this.notesList = new NotesList();
 		this.notesList.fetch({ajaxSync: false});
-
-		const tempNote = new Note({ title: 'test title', author: 'test Author', description: 'Test description'});
-		this.notesList.add(tempNote);
-
-		tempNote.save();
-
-		console.log(this.notesList.localStorage, this);
-
+		this.view = '';
 		this.home();
 		this.start();
 		// everything you need to initialize you app
 	},
+	loadView(view) {
+		if (this.view) this.view.remove();
+		this.view = view;
+	},
 	start(){
-		console.log('starting');
-		Backbone.history.start({pushState: true});
+		Backbone.history.start({pushState: false});
 	},
 });
 

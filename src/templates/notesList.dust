@@ -1,28 +1,38 @@
-<div>
-    <a id="new-note-button" href="/#new" class="button">Create New Note</a>
+<div class="container-fluid p-3 border bg-secondary">
+    <a class="btn btn-success w-100" role="button" id="new-note-button"
+        href="#new">Create New Note</a>
 </div>
-{?notes}
-    <ul>
-        {#notes}
-        <li>
-            <div>
-                <span>Title: {title}</span>
-            </div>
-            <div>
-                <span>Author: {author}</span>
-            </div>
-            <div>
-                <span>Description: {description}</span>
-            </div>
-        </li>
-        {/notes}
-        <div class="">
-            <div class="label"> </div>
-        </div>
-    </ul>
-    <div>
-        <a data-id="{id}" href="/#edit/{id}" class="button edit-note">Edit</a>
-        <a data-id="{id}" href="/#delete/{id}" class="button delete-note">Delete</a>
-    </div>
-{/notes}
 
+{#notes}
+<div class="card">
+    <div class="card-body container m-md-1 my-md-3">
+        <dl class="mb-0">
+            <div class="row">
+                <dt class="col-md-5 col">Title:</dt>
+                <dd class="col m-0">{title}</dd>
+            </div>
+            <div class="row">
+                <dt class="col-md-5 col">Author:</dt>
+                <dd class="col m-0">{author}</dd>
+            </div>
+            <div class="row mb-2">
+                <dt class="col-md-5 col">Description:</dt>
+                <dd class="col m-0">{description}</dd>
+            </div>
+        </dl>
+
+
+        <div class="container d-flex justify-content-center gap-1">
+            <a class="btn btn-primary btn-sm" role="button" data-id="{id}"
+                href="#edit/{id}"
+                class="edit-note">Edit</a>
+            <a class="btn btn-danger btn-sm" role="button" data-id="{id}"
+                href="#delete/{id}"
+                class="delete-note">Delete</a>
+        </div>
+    </div>
+</div>
+
+{:else}
+<span>No new notes</span>
+{/notes}

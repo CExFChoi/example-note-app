@@ -1,35 +1,46 @@
+/* eslint-disable */
 const Backbone = require('backbone');
 const _ = require('underscore');
+const dust = require('dustjs-linkedin');
+require('../../lib/templates.js');
 
 const views = {};
 
 views.NoteForm = Backbone.View.extend({
-	el: '#container',
-
-	initialize({noteList, note}) {
+	initialize({noteList, note, type}) {
 		this.notesList = noteList;
 		this.note = note;
 		this.errorViews = [];
+		this.type = type;
+		$('#primary').html(this.el);
 		this.render();
 	},
 
 	render(){
-		dust.render(this.template, this.note.attributes, function (err, out) {
+		this.removeErrors();
+		dust.render('noteForm', {type: this.type, ...this.note.attributes}, function (err, out) {
 		// `out` contains the rendered output.
 			this.$el.html(out);
 		}.bind(this));
 	},
 	events: {
 		'submit #note-form': 'saveNote',
+		'click #form-cancel': 'cancel',
 	},
-
-	saveNote(event, id) {
-		event.preventDefault();
+	removeErrors(){
 		_.each(this.errorViews, function (error){
-			console.log('removing error', error);
 			error.remove();
 		});
 		this.errorViews = [];
+	},
+	cancel(event){
+		this.removeErrors();
+		Backbone.history.navigate('index', {trigger: true});
+	},
+	saveNote(event, id) {
+		event.preventDefault();
+		this.removeErrors();
+		const prevValues = {...this.note.attributes};
 
 		this.note.set({
 			title: $('#form-title').val().trim(),
@@ -40,33 +51,32 @@ views.NoteForm = Backbone.View.extend({
 		if (this.note.isValid()){
 			this.notesList.add(this.note);
 			this.note.save();
+			this.removeErrors();
 			Backbone.history.navigate('index', {trigger: true});
 		} else {
+			this.note.set(prevValues);
+
 			_.mapObject(this.note.validationError, function (val, key){
 				const error = new views.Error(val);
-				error.setElement('.error-input');
-				$(`#form-${key}`).after(error.render());
+				$(`#form-${key}`).parent().after(error.render().$el);
 				this.errorViews.push(error);
-				console.log(this.errorViews);
 			}.bind(this));
 		}
 	},
 });
 
 views.Error = Backbone.View.extend({
-
-	el: '.error-input',
-	template: _.template('<div class="error-input"> <span> <%= field %> </span> <div>'),
+	template: _.template('<div class="error-input"> <span class="text-danger"> <%= field %> </span> <div>'),
 	initialize(field){
-		console.log('initial render of Error', field);
 		this.field = field;
 	},
 	render(){
-		// this.$el.after(this.template({field: this.field}));
-		return this.template({field: this.field});
+		this.$el = $('<div>').addClass('error-input');
+		this.$el.html(this.template({field: this.field}));
+		return this;
 	},
 	remove() {
-		this.$el.empty();
+		this.$el.remove();
 		this.stopListening();
 		return this;
 	},
@@ -75,13 +85,10 @@ views.Error = Backbone.View.extend({
 	},
 });
 
-
 views.NotesSection = Backbone.View.extend({
-
 	initialize(collection){
-		console.log('collection', collection);
 		this.notesList = collection.toJSON();
-		console.log('initial render of note section and list', this.notesList);
+		$('#primary').html(this.el);
 		// Get models from collection
 		this.render();
 	},
@@ -91,8 +98,18 @@ views.NotesSection = Backbone.View.extend({
 			this.$el.html(out);
 		}.bind(this));
 	},
-	events: {
+});
 
+views.DebugSection = Backbone.View.extend({
+	el: '#secondary',
+	initialize(collection){
+		this.text = JSON.stringify(collection.toJSON(), null, 4);
+		this.render();
+	},
+	render(){
+		dust.render('debug', {text: this.text}, function (err, out) {
+			this.$el.html(out);
+		}.bind(this));
 	},
 });
 
