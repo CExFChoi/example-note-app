@@ -1,0 +1,6 @@
+<div>
+    <h2>Debug</h2>
+    <code id="debug" style="display:block;white-space:pre-wrap;">
+        {text}
+    </code>
+</div>

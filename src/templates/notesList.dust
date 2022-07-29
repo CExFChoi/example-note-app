@@ -1,0 +1,38 @@
+<div class="container-fluid p-3 border bg-secondary">
+    <a class="btn btn-success w-100" role="button" id="new-note-button"
+        href="#new">Create New Note</a>
+</div>
+
+{#notes}
+<div class="card">
+    <div class="card-body container m-md-1 my-md-3">
+        <dl class="mb-0">
+            <div class="row">
+                <dt class="col-md-5 col">Title:</dt>
+                <dd class="col m-0">{title}</dd>
+            </div>
+            <div class="row">
+                <dt class="col-md-5 col">Author:</dt>
+                <dd class="col m-0">{author}</dd>
+            </div>
+            <div class="row mb-2">
+                <dt class="col-md-5 col">Description:</dt>
+                <dd class="col m-0">{description}</dd>
+            </div>
+        </dl>
+
+
+        <div class="container d-flex justify-content-center gap-1">
+            <a class="btn btn-primary btn-sm" role="button" data-id="{id}"
+                href="#edit/{id}"
+                class="edit-note">Edit</a>
+            <a class="btn btn-danger btn-sm" role="button" data-id="{id}"
+                href="#delete/{id}"
+                class="delete-note">Delete</a>
+        </div>
+    </div>
+</div>
+
+{:else}
+<span>No new notes</span>
+{/notes}
