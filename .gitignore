@@ -5,7 +5,7 @@ npm-debug.log
 npm-debug.log.*
 *.heapsnapshot
 yarn-error.log
-
+dist
 
 ### Secrets
 keys
