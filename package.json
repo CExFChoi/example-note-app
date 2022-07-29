@@ -29,7 +29,6 @@
     "underscore": "^1.13.4"
   },
   "devDependencies": {
-    "eslint-config-isight": "git+ssh://git@github.com/i-Sight/eslint-config-isight.git#v7.0.1",
     "eslint-friendly-formatter": "4.0.1",
     "eslint-plugin-import": "2.25.4",
     "webpack": "^5.74.0",

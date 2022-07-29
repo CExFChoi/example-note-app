@@ -1,9 +1,8 @@
 module.exports = {
-	'extends': 'eslint-config-isight',
-	'overrides': [
+	overrides: [
 		{
 			/* Node js files */
-			'files': [
+			files: [
 				'config/form-layouts/email-rule-form.js',
 				'config/form-layouts/field-data-form.js',
 				'config/form-layouts/file-details-form.js',
@@ -791,7 +790,7 @@ module.exports = {
 				'test/**',
 				'worker.js',
 			],
-			'rules': {
+			rules: {
 				'consistent-return': 'off',
 				'func-names': 'off',
 				'import/newline-after-import': 'off',
@@ -826,7 +825,7 @@ module.exports = {
 				'no-path-concat': 'off',
 				'no-continue': 'off',
 				'arrow-parens': 'off',
-				'curly': 'off',
+				curly: 'off',
 				'no-prototype-builtins': 'off',
 				'no-mixed-operators': 'off',
 				'no-useless-concat': 'off',
@@ -838,64 +837,64 @@ module.exports = {
 				'no-unneeded-ternary': 'off',
 				'no-throw-literal': 'off',
 				'operator-assignment': 'off',
-				'no-extra-boolean-cast': 'off'
-			}
+				'no-extra-boolean-cast': 'off',
+			},
 		},
 		{
 			files: [
-				'public/**/*.js'
+				'public/**/*.js',
 			],
-			'env': {
-				'node': false,
-				'browser': true,
-				'commonjs': true
+			env: {
+				node: false,
+				browser: true,
+				commonjs: true,
 			},
-			'globals': {
-				'$appData': true
-			}
+			globals: {
+				$appData: true,
+			},
 		},
 		{
 			files: [
 				'public/test/**/*.js',
 				'plugins/**/test/test.unit.*.js',
 			],
-			'env': {
-				'mocha': true
-			}
+			env: {
+				mocha: true,
+			},
 		},
 		{
-			/* public ops js files*/
-			"files": [
-				"public-ops/**/*.js"
+			/* public ops js files */
+			files: [
+				'public-ops/**/*.js',
 			],
-			"rules": {
-				"import/no-unresolved": "off",
-				"import/no-amd": "off",
-				"import/no-extraneous-dependencies": "off",
-				"import/no-webpack-loader-syntax": "off"
+			rules: {
+				'import/no-unresolved': 'off',
+				'import/no-amd': 'off',
+				'import/no-extraneous-dependencies': 'off',
+				'import/no-webpack-loader-syntax': 'off',
 			},
-			"env": {
-			  "node": false,
-			  "amd": true,
-			  'browser': true
+			env: {
+			  node: false,
+			  amd: true,
+			  browser: true,
 			},
-			"globals": {
-			  "JSON": true,
-			  "define": true,
-			  "$": true
-			}
+			globals: {
+			  JSON: true,
+			  define: true,
+			  $: true,
+			},
 		},
 		{
 			/* node test js files */
-			"files": [
-				"test/**/*.js"
+			files: [
+				'test/**/*.js',
 			],
-			"env": {
-			  "node": true,
-			  "browser": true,
-			  "mocha": true,
+			env: {
+			  node: true,
+			  browser: true,
+			  mocha: true,
 
-			}
-		}
-	]
+			},
+		},
+	],
 };
